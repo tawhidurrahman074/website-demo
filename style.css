@@ -708,3 +708,13 @@ body {
   color: #888;
 }
 
+.chat-container {
+  width: 400px;
+  margin: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
+}
+.user-msg { background: #0084ff; color: white; padding: 5px; margin: 5px; border-radius: 8px; }
+.bot-msg { background: #eee; padding: 5px; margin: 5px; border-radius: 8px; }
+

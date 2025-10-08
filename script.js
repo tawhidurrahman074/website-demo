@@ -157,3 +157,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzLtV-oV-nJqMpn51Mn_uk-dcljBPvTllLM4WfXc6b1uj-3cKMxW7wwGbS_melAGXmI/execE';
+
+
+document.getElementById('bookingForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const formData = {
+    name: e.target[0].value,
+    email: e.target[1].value,
+    event: e.target[2].value,
+    date: e.target[3].value,
+    details: e.target[4].value
+  };
+  fetch(scriptURL, { method: 'POST', body: JSON.stringify(formData) })
+    .then(res => alert("Booking successful!"))
+    .catch(err => alert("Error: " + err.message));
+});
+
+
+
+const API_KEY = "YOUR_OPENAI_API_KEY";
+
+async function sendMessage() {
+  const input = document.getElementById("user-input").value;
+  const chatBox = document.getElementById("chat-box");
+  chatBox.innerHTML += `<div class="user-msg">${input}</div>`;
+
+  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: input }],
+    }),
+  });
+
+  const data = await response.json();
+  const reply = data.choices[0].message.content;
+  chatBox.innerHTML += `<div class="bot-msg">${reply}</div>`;
+  document.getElementById("user-input").value = "";
+}
+

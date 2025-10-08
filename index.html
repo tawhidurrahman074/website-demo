@@ -23,7 +23,21 @@
   <section id="home" class="hero">
     <h1>Make Your Events Memorable</h1>
     <p>We organize weddings, corporate functions, and private parties with a touch of elegance and professionalism.</p>
-    <button>Book Now</button>
+    <a href="#booking" class="btn">Book Now</a>
+    
+    
+<section id="booking">
+  <h2>Book Your Event</h2>
+  <form id="bookingForm">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email" required>
+    <input type="text" placeholder="Event Type" required>
+    <input type="date" required>
+    <textarea placeholder="Additional Details"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
   </section>
 
   <!-- Events Section -->
@@ -307,3 +321,17 @@
 </script>
 </body>
 </html>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<div class="chat-container">
+  <div id="chat-box"></div>
+  <input type="text" id="user-input" placeholder="Ask about your event..." />
+  <button onclick="sendMessage()">Send</button>
+</div>
+<script src="chatbot.js"></script>
+
