@@ -79,6 +79,21 @@ nav ul li a:hover {
   max-width: 700px;
   color: #e5e7eb;
 }
+/* Base state */
+.animated-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .hero button {
   background: #facc15;
@@ -119,6 +134,39 @@ nav ul li a:hover {
   transform: translateY(0);
 }
 
+/* Animations */
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+  }
+}
+
+.main-title {
+  animation-delay: 0.3s;
+}
+
+.main-subtitle {
+  animation-delay: 0.6s;
+}
+
+
+/* Responsive Text */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
 
 
 /* Events Section */
